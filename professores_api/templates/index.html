@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sala de Aula - Professores</title>
+    </head>
+    <body>
+        <H1> LMS - Impacta </H1>
+        <H2>Cadastro de Professores</H2>
+        <p><b>{{mensagem}}</b></p>
+        <br>
+        <form action="/site/professores" method="POST">
+            <table>
+            <tr>
+            <td>Nome:</td><td><input type="text" id="nome" name="nome" autocomplete="off" /></td>
+            </tr>
+            <tr>
+            <td>RG:</td><td><input type="text" id="rg" name="rg" autocomplete="off" /></td>
+            </tr>
+            </table>
+            <br>
+            <button type="submit">Cadastrar novo Professor!</button>
+            <br>
+            <br>
+            <br>
+        </form>
+        <H2>Lista de Professores</H2>
+        <div id="professores">
+        {% for item in professores %}
+        <li>ID: {{ item['id'] }}, Nome: {{ item['nome'] }}, RG: {{ item['rg'] }}</b></li>
+        {% endfor %}
+        </div>
+        <H2>Remover Professores</H2>
+        <p><b>{{mensagem_remover}}</b></p>
+        <form action="/site/professores/delete" method="POST">
+            <table>
+            <tr>
+            <td>Id:</td><td><input type="text" id="id" name="id" autocomplete="off" size="1"/></td>
+            </tr>
+            </table>
+            <br>
+            <button type="submit">Remover Professor!</button>
+            <br>
+            <br>
+            <br>
+        </form>
+    </body>
+</html>

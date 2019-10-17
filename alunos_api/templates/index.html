@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sala de Aula - Alunos</title>
+    </head>
+    <body>
+        <H1> LMS - Impacta </H1>
+        <H2>Cadastro de alunos</H2>
+        <p><b>{{mensagem}}</b></p>
+        <br>
+        <form action="/site/alunos" method="POST">
+            <table>
+            <tr>
+            <td>Nome:</td><td><input type="text" id="nome" name="nome" autocomplete="off" /></td>
+            </tr>
+            <tr>
+            <td>Matrícula:</td><td><input type="text" id="matricula" name="matricula" autocomplete="off" /></td>
+            </tr>
+            </table>
+            <br>
+            <button type="submit">Cadastrar novo Aluno!</button>
+            <br>
+            <br>
+            <br>
+        </form>
+        <H2>Lista de alunos</H2>
+        <div id="alunos">
+        {% for item in alunos %}
+        <li>ID: {{ item['id'] }}, Nome: {{ item['nome'] }}, Matrícula: {{ item['matricula'] }}</b></li>
+        {% endfor %}
+        </div>
+        <H2>Remover alunos</H2>
+        <p><b>{{mensagem_remover}}</b></p>
+        <form action="/site/alunos/delete" method="POST">
+            <table>
+            <tr>
+            <td>Id:</td><td><input type="text" id="id" name="id" autocomplete="off" size="1"/></td>
+            </tr>
+            </table>
+            <br>
+            <button type="submit">Remover aluno!</button>
+            <br>
+            <br>
+            <br>
+        </form>
+    </body>
+</html>
